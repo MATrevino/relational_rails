@@ -19,11 +19,7 @@ RSpec.describe "coffee shop index page", type: :feature do
         expect(page).to have_content(coffee_shop_1.name)
         expect(page).to have_content(coffee_shop_1.open_year)
         expect(page).to have_content(coffee_shop_1.open_after_five)
-
-
       end
-
     end
-      
   end
 end

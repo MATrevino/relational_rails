@@ -1,0 +1,7 @@
+<h1> Drinks <h1>
+
+<% @drinks.each do |drink| %>
+<h4> Name: <%= drink.name %> </h4>
+<p> Price: $<%=drink.price %> </p>
+<p> Hot drink?: <%= drink.hot_drink %> </p>
+<%end%>
