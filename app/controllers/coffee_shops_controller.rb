@@ -1,6 +1,6 @@
 class CoffeeShopsController < ApplicationController
   def index
-    @coffee_shops = CoffeeShop.all
+    @coffee_shops = CoffeeShop.sort
   end
 
   def show
