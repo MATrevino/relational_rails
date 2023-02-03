@@ -27,4 +27,4 @@ drink_6 = Drink.create!(coffee_shop_id: coffee_shop_2.id, name: "Iced Oat Latte"
 drink_7 = Drink.create!(coffee_shop_id: coffee_shop_3.id, name: "Cold Brew", hot_drink: false, price: 4)
 drink_8 = Drink.create!(coffee_shop_id: coffee_shop_3.id, name: "Americano", hot_drink: true, price: 3)
 drink_9 = Drink.create!(coffee_shop_id: coffee_shop_3.id, name: "Drip Coffee", hot_drink: true, price: 2)
-
+drink_10 = Drink.create!(coffee_shop_id: coffee_shop_3.id, name: "Espresso shot", hot_drink: true, price: 1.50)

@@ -31,5 +31,21 @@ RSpec.describe Drink do
       expect(page).not_to have_content(drink_2.name)
       end
     end
+#     When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Child Index
+    describe "When I visit any page on site US8" do
+      it "# Then I see a link at the top of the page that takes me to the Child Index" do
+        coffee_shop_1 = CoffeeShop.create!(name: "Starbucks", open_year: 1971, open_after_five: true )
+        drink_1 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Flat White", hot_drink: true, price: 3)
+        drink_2 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Pumpkin Spice Latte", hot_drink: true, price: 5)
+
+        visit "/coffee_shops"
+        #visit any page ^
+        click_on("All Drinks")
+      
+
+        expect(current_path).to eq("/drinks")
+      end
+    end
   end
 end

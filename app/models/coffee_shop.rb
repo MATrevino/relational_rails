@@ -4,4 +4,8 @@ class CoffeeShop < ApplicationRecord
   def self.sort
     order(created_at: :DESC)
   end
+
+  def countdrinks
+    drinks.count
+  end
 end
