@@ -14,4 +14,18 @@ RSpec.describe 'Coffee Shop Drinks index' do
       expect(page).to have_content(drink_1.hot_drink)
     end
   end
+
+  describe "When I visit a parent show page ('/parents/:id')" do
+    it "Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')" do
+      coffee_shop_1 = CoffeeShop.create!(name: "Starbucks", open_year: 1971, open_after_five: true )
+      drink_1 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Flat White", hot_drink: true, price: 3)
+      drink_2 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Pumpkin Spice Latte", hot_drink: true, price: 5)
+      
+      visit "/coffee_shops/#{coffee_shop_1.id}"
+
+      click_link("Coffee Shop's drinks")
+
+      expect(current_path).to eq("/coffee_shops/#{coffee_shop_1.id}/drinks")
+    end
+  end
 end
