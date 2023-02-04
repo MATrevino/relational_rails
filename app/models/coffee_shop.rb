@@ -8,4 +8,7 @@ class CoffeeShop < ApplicationRecord
   def countdrinks
     drinks.count
   end
+
+  def new
+  end
 end

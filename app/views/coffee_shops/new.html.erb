@@ -1,0 +1,9 @@
+<%= form_with url: "/coffee_shops", method: :post, local: true do |form|%>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :open_year %>
+  <%= form.text_field :open_year %>
+  <%= form.label :Open_After_Five_true_for_yes %>
+  <%= form.text_field :open_after_five%>
+  <%= form.submit "Create Coffee Shop" %>
+  <% end %>

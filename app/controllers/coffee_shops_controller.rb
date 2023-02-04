@@ -6,4 +6,25 @@ class CoffeeShopsController < ApplicationController
   def show
     @coffee_shop = CoffeeShop.find(params[:id])
   end
+
+  def create
+   coffee_shop = CoffeeShop.create(coffee_shop_params)
+   redirect_to "/coffee_shops"
+  end
+  
+  def edit
+    @coffee_shop = CoffeeShop.find(params[:id])
+  end
+  
+  def update
+    coffee_shop = CoffeeShop.find(params[:id])
+    coffee_shop.update(coffee_shop_params)
+    redirect_to '/coffee_shops'
+  end
+
+  private
+  #adds security
+  def coffee_shop_params
+    params.permit(:name, :open_year, :open_after_five)
+  end
 end
