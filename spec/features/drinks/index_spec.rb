@@ -42,7 +42,6 @@ RSpec.describe Drink do
         visit "/coffee_shops"
         #visit any page ^
         click_on("All Drinks")
-      
 
         expect(current_path).to eq("/drinks")
       end
