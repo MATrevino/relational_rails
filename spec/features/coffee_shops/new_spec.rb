@@ -13,7 +13,8 @@ RSpec.describe 'the coffee shop creation US11' do
 
     fill_in('Name', with: "Hooked on Colfax")
     click_button('Create Coffee Shop')
-    
+
+    # new_coffee_shop_id = CoffeeShop.last.id
     expect(current_path).to eq("/coffee_shops")
     expect(page).to have_content("Hooked on Colfax")
   end
