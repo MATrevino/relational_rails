@@ -3,4 +3,4 @@
   <p>Price: $<%= drink.price%></p>
   <p>Hot Drink: <%= drink.hot_drink%></p>
 <% end %>
-<%= link_to 'New Drink', "/coffee_shops/#{CoffeeShop.ids.last}/drinks/new" %>
+<%= link_to 'New Drink', "/coffee_shops/#{@coffee_shop.id}/drinks/new" %>

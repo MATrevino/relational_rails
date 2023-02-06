@@ -12,6 +12,9 @@ RSpec.describe 'the coffee shop creation US11' do
     visit '/coffee_shops/new'
 
     fill_in('Name', with: "Hooked on Colfax")
+    fill_in('open_year', with: "2005")
+    find("#open_after_five").click
+
     click_button('Create Coffee Shop')
 
     # new_coffee_shop_id = CoffeeShop.last.id

@@ -11,7 +11,7 @@ class CoffeeShopsController < ApplicationController
   end
 
   def create
-   coffee_shop = CoffeeShop.create(coffee_shop_params)
+   coffee_shop = CoffeeShop.create!(coffee_shop_params)
    coffee_shop.save
    redirect_to "/coffee_shops"
   end
@@ -22,7 +22,7 @@ class CoffeeShopsController < ApplicationController
   
   def update
     coffee_shop = CoffeeShop.find(params[:id])
-    coffee_shop.update(coffee_shop_params)
+    coffee_shop.update!(coffee_shop_params)
     redirect_to '/coffee_shops'
   end
 

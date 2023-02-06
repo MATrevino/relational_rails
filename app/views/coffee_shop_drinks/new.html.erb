@@ -1,5 +1,12 @@
-<%= form_with url: "/coffee_shops/#{CoffeeShop.ids.last}/drinks/", method: :post, local: true do |form|%>
+<%= form_with url: "/coffee_shops/#{@coffee_shop.id}/drinks", method: :post, local: true do |form|%>
 <%= form.label :name %>
 <%= form.text_field :name %>
+
+<%= form.label :price %>
+<%= form.text_field :price %>
+
+<%= form.label :hot_drink %>
+<%= form.text_field :hot_drink %>
+
 <%= form.submit "Create Drink" %>
 <% end %>

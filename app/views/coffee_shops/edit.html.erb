@@ -1,9 +1,12 @@
 <%= form_with url: "/coffee_shops/#{@coffee_shop.id}", method: :patch, local: true do |form|%>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, :value => "#{@coffee_shop.name}" %>
+
   <%= form.label :open_year %>
-  <%= form.text_field :open_year %>
-  <%= form.label :Open_After_Five_true_for_yes %>
-  <%= form.text_field :open_after_five%>
+  <%= form.text_field :open_year, :value => "#{@coffee_shop.open_year}"  %>
+
+  <%= form.label :Open_After_Five %>
+  <%= form.check_box :open_after_five, :value => "#{@coffee_shop.open_after_five}" %>
+  
   <%= form.submit 'Update Coffee Shop' %>
 <% end %>

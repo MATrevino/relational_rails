@@ -5,15 +5,17 @@ class CoffeeShopDrinksController < ApplicationController
   end
 
   def new
+    @coffee_shop = CoffeeShop.find(params[:id])
   end
 
   def create
-    drink = Drink.create(name: params[:name], coffee_shop_id: params[:id])
-    redirect_to "/coffee_shops/#{params[:id]}/drinks"
+    coffee_shop = CoffeeShop.find(params[:coffee_shop_id])
+    drink = coffee_shop.drinks.create!(drink_params)
+    redirect_to "/coffee_shops/#{coffee_shop.id}/drinks"
   end
 
-  # private
-  # def drink_params
-  #   params.permit(:name, :hot_drink, :price, :coffee_shop_id)
-  # end
+  private
+  def drink_params
+    params.permit(:name, :price, :hot_drink)
+  end
 end

@@ -7,9 +7,15 @@ Rails.application.routes.draw do
   get '/coffee_shops/:id', to: 'coffee_shops#show'
   get '/drinks', to: 'drinks#index'
   get '/drinks/:id', to: 'drinks#show'
+  
   get '/coffee_shops/:coffee_shop_id/drinks', to: 'coffee_shop_drinks#index'
+  post '/coffee_shops/:coffee_shop_id/drinks', to: 'coffee_shop_drinks#create'
   get '/coffee_shops/:id/edit', to: 'coffee_shops#edit'
   patch '/coffee_shops/:id', to: 'coffee_shops#update'
-  get 'coffee_shops/:id/drinks/new', to: 'coffee_shop_drinks#new'
-  post 'coffee_shops/:id/drinks/', to: 'coffee_shop_drinks#create'
+
+  get '/coffee_shops/:id/drinks/new', to: 'coffee_shop_drinks#new'
+
+  get '/drinks/:id/edit', to: 'drinks#edit'
+  patch '/drinks/:id', to: 'drinks#update'
+
 end

@@ -1,0 +1,12 @@
+<%= form_with url: "/drinks/#{@drink.id}", method: :patch, local: true do |form|%>
+  <%= form.label :name %>
+  <%= form.text_field :name, :value => "#{@drink.name}" %>
+
+  <%= form.label :price %>
+  <%= form.text_field :price, :value => "#{@drink.price}"  %>
+
+  <%= form.label :hot_drink %>
+  <%= form.check_box :hot_drink %>
+  
+  <%= form.submit 'Update Drink' %>
+<% end %>
