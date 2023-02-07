@@ -37,5 +37,39 @@ RSpec.describe "coffee shop index page", type: :feature do
         end
       end
     end
+    describe 'User Story 17, Parent Update From Parent Index Page' do
+      describe 'When I visit the parent index page' do
+        describe " When I click the link" do
+         it  "should be taken to that parent's edit page where I can update its info" do
+            coffee_shop = CoffeeShop.create!(name: "Hooked on Colfax")
+            visit "/coffee_shops"
+      
+            click_button "Edit #{coffee_shop.name}"
+      
+            expect(current_path).to eq("/coffee_shops/#{coffee_shop.id}/edit")
+          end
+        
+      
+          it 'can edit the coffee shop' do
+            coffee_shop = CoffeeShop.create!(name: "Hooked on Colfa")
+        
+            visit "/coffee_shops"
+        
+            expect(page).to have_content("Hooked on Colfa")
+        
+            click_button "Edit #{coffee_shop.name}"
+        
+            fill_in('name', with: 'Hooked on Colfax')
+            fill_in('open_year', with: "2005")
+            find("#open_after_five").click 
+        
+            click_button 'Update Coffee Shop'
+        
+            expect(current_path).to eq("/coffee_shops/#{coffee_shop.id}")
+            expect(page).to have_content('Hooked on Colfax')
+         end
+        end
+      end
+    end
   end
 end

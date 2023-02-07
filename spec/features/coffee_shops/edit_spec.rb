@@ -4,7 +4,7 @@ RSpec.describe 'coffee shop update US#12' do
   describe "as a visitor to the coffee shop show page" do
     it 'links to the edit page' do 
       coffee_shop = CoffeeShop.create!(name: "Hooked on Colfax")
-      visit "/coffee_shops"
+      visit "/coffee_shops/#{coffee_shop.id}"
 
       click_button "Edit #{coffee_shop.name}"
 
@@ -15,7 +15,7 @@ RSpec.describe 'coffee shop update US#12' do
   it 'can edit the coffee shop' do
     coffee_shop = CoffeeShop.create!(name: "Hooked on Colfa")
 
-    visit "/coffee_shops"
+    visit "/coffee_shops/#{coffee_shop.id}"
 
     expect(page).to have_content("Hooked on Colfa")
 
@@ -27,7 +27,7 @@ RSpec.describe 'coffee shop update US#12' do
 
     click_button 'Update Coffee Shop'
 
-    expect(current_path).to eq("/coffee_shops")
+    expect(current_path).to eq("/coffee_shops/#{coffee_shop.id}")
     expect(page).to have_content('Hooked on Colfax')
   end
 end

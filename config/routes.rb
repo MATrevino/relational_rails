@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   patch '/coffee_shops/:id', to: 'coffee_shops#update'
   #^updates and back to former page
 
+
   get '/coffee_shops/:id/drinks/new', to: 'coffee_shop_drinks#new'
 
   get '/drinks/:id/edit', to: 'drinks#edit'

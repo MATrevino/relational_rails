@@ -23,13 +23,14 @@ class CoffeeShopsController < ApplicationController
   def update
     coffee_shop = CoffeeShop.find(params[:id])
     coffee_shop.update!(coffee_shop_params)
-    redirect_to '/coffee_shops'
+     
+    redirect_to "/coffee_shops/#{coffee_shop.id}"
   end
 
   def destroy
     coffee_shop = CoffeeShop.find(params[:id])
     coffee_shop.destroy
-    redirect_to "/coffee_shops"
+    redirect_to "/coffee_shops/"
   end
 
   private

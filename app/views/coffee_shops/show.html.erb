@@ -2,4 +2,7 @@
   <h4>Year opened: <%=@coffee_shop.open_year %></h4>
   <h4>Open after 5pm: <%= @coffee_shop.open_after_five %></h4>
   <h4>Number of drinks on menu: <%= @coffee_shop.countdrinks %></h4>
-  <%= link_to "Coffee Shop's drinks", "/coffee_shops/#{@coffee_shop.id}/drinks" %>
+
+  <p><%= link_to "Coffee Shop's drinks", "/coffee_shops/#{@coffee_shop.id}/drinks" %>
+
+  <p><%= button_to "Edit #{@coffee_shop.name}", "/coffee_shops/#{@coffee_shop.id}/edit", method: :get %>
