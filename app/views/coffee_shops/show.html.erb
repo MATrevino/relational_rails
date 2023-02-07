@@ -6,3 +6,5 @@
   <p><%= link_to "Coffee Shop's drinks", "/coffee_shops/#{@coffee_shop.id}/drinks" %>
 
   <p><%= button_to "Edit #{@coffee_shop.name}", "/coffee_shops/#{@coffee_shop.id}/edit", method: :get %>
+
+  <p><%= button_to "Delete #{@coffee_shop.name}", "/coffee_shops/#{@coffee_shop.id}", method: :delete %></p>
