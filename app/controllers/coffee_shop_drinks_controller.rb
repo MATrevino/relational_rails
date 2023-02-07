@@ -1,7 +1,12 @@
 class CoffeeShopDrinksController < ApplicationController
   def index
-    @coffee_shop = CoffeeShop.find(params[:coffee_shop_id])
-    @drinks = @coffee_shop.drinks
+    @coffee_shop = CoffeeShop.find(params[:id])
+    
+    if params[:sort] == "name"
+      @drinks = @coffee_shop.drinks.sort_alphabetically 
+    else
+      @drinks = @coffee_shop.drinks
+    end
   end
 
   def new
@@ -9,7 +14,7 @@ class CoffeeShopDrinksController < ApplicationController
   end
 
   def create
-    coffee_shop = CoffeeShop.find(params[:coffee_shop_id])
+    coffee_shop = CoffeeShop.find(params[:id])
     drink = coffee_shop.drinks.create!(drink_params)
     redirect_to "/coffee_shops/#{coffee_shop.id}/drinks"
   end

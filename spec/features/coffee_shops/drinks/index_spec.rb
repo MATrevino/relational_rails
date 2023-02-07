@@ -28,4 +28,20 @@ RSpec.describe 'Coffee Shop Drinks index' do
       expect(current_path).to eq("/coffee_shops/#{coffee_shop_1.id}/drinks")
     end
   end
+  describe "User Story 16, Sort Parent's Children in Alphabetical Order by name " do
+    describe "When I visit the Parent's children Index Page" do
+      it "Then I see a link to sort children in alphabetical order" do
+        coffee_shop_1 = CoffeeShop.create!(name: "Starbucks", open_year: 1971, open_after_five: true )
+        drink_1 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Flat White", hot_drink: true, price: 3)
+        drink_2 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Pumpkin Spice Latte", hot_drink: true, price: 5)
+      
+        visit "/coffee_shops/#{coffee_shop_1.id}/drinks"
+
+        click_link("sort alphabetically")
+
+        expect(current_path).to eq("/coffee_shops/#{coffee_shop_1.id}/drinks")
+        expect(drink_1.name).to appear_before(drink_2.name)
+      end
+    end
+  end
 end

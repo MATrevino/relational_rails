@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/drinks', to: 'drinks#index'
   get '/drinks/:id', to: 'drinks#show'
   
-  get '/coffee_shops/:coffee_shop_id/drinks', to: 'coffee_shop_drinks#index'
-  post '/coffee_shops/:coffee_shop_id/drinks', to: 'coffee_shop_drinks#create'
+  get '/coffee_shops/:id/drinks', to: 'coffee_shop_drinks#index'
+  post '/coffee_shops/:id/drinks', to: 'coffee_shop_drinks#create'
   get '/coffee_shops/:id/edit', to: 'coffee_shops#edit'
   #^takes me to the form
   patch '/coffee_shops/:id', to: 'coffee_shops#update'
