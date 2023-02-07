@@ -26,6 +26,12 @@ class CoffeeShopsController < ApplicationController
     redirect_to '/coffee_shops'
   end
 
+  def destroy
+    coffee_shop = CoffeeShop.find(params[:id])
+    coffee_shop.destroy
+    redirect_to "/coffee_shops"
+  end
+
   private
   #adds security
   def coffee_shop_params

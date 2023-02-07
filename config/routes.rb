@@ -11,11 +11,14 @@ Rails.application.routes.draw do
   get '/coffee_shops/:coffee_shop_id/drinks', to: 'coffee_shop_drinks#index'
   post '/coffee_shops/:coffee_shop_id/drinks', to: 'coffee_shop_drinks#create'
   get '/coffee_shops/:id/edit', to: 'coffee_shops#edit'
+  #^takes me to the form
   patch '/coffee_shops/:id', to: 'coffee_shops#update'
+  #^updates and back to former page
 
   get '/coffee_shops/:id/drinks/new', to: 'coffee_shop_drinks#new'
 
   get '/drinks/:id/edit', to: 'drinks#edit'
   patch '/drinks/:id', to: 'drinks#update'
 
+  delete '/coffee_shops/:id', to: 'coffee_shops#destroy'
 end

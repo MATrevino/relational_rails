@@ -31,8 +31,7 @@ RSpec.describe Drink do
       expect(page).not_to have_content(drink_2.name)
       end
     end
-#     When I visit any page on the site
-# Then I see a link at the top of the page that takes me to the Child Index
+
     describe "When I visit any page on site US8" do
       it "# Then I see a link at the top of the page that takes me to the Child Index" do
         coffee_shop_1 = CoffeeShop.create!(name: "Starbucks", open_year: 1971, open_after_five: true )
@@ -44,6 +43,24 @@ RSpec.describe Drink do
         click_on("All Drinks")
 
         expect(current_path).to eq("/drinks")
+      end
+    end
+
+    describe 'when I visit the child index, user story #15' do
+      it "Then I only see records where the boolean column is `true`" do
+        coffee_shop_1 = CoffeeShop.create!(name: "Starbucks", open_year: 1971, open_after_five: true )
+        drink_1 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Flat White", hot_drink: true, price: 3)
+        drink_3 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Cold Brew", hot_drink: false, price: 4)
+        visit "/drinks"
+
+        expect(page).to have_content("Cold Brew")
+        expect(page).to have_content("Flat White")
+
+        click_link("Filter out cold drinks")
+
+        expect(current_path).to eq("/drinks")
+        expect(page).to have_content("Flat White")
+        expect(page).not_to have_content("Cold Brew")
       end
     end
   end
