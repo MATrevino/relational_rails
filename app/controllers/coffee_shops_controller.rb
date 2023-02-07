@@ -30,7 +30,7 @@ class CoffeeShopsController < ApplicationController
   def destroy
     coffee_shop = CoffeeShop.find(params[:id])
     coffee_shop.destroy
-    redirect_to "/coffee_shops/"
+    redirect_to "/coffee_shops"
   end
 
   private

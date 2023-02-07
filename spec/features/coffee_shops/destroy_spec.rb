@@ -18,7 +18,7 @@ RSpec.describe "Parent delete" do
       visit "/coffee_shops/#{coffee_shop.id}"
       click_button "Delete"
       
-      expect(current_path).to eq("/coffee_shops/")
+      expect(current_path).to eq("/coffee_shops")
       expect(page).to_not have_content("Hooked on Colfax")
     end
   end

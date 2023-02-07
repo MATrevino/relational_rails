@@ -80,7 +80,7 @@ RSpec.describe "coffee shop index page", type: :feature do
           visit "/coffee_shops"
           click_button "Delete"
           
-          expect(current_path).to eq("/coffee_shops/")
+          expect(current_path).to eq("/coffee_shops")
           expect(page).to_not have_content("Starbucks")
         end
       end
