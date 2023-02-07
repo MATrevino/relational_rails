@@ -71,5 +71,19 @@ RSpec.describe "coffee shop index page", type: :feature do
         end
       end
     end
+    describe 'user story 22' do
+      describe 'when I visit parent index page, next to each parent is a link to delete parent' do
+        it 'clicks link and returns to parent index page' do
+          coffee_shop_1 = CoffeeShop.create!(name: "Starbucks", open_year: 1971, open_after_five: true, created_at: Time.now - 1.hour )
+          
+
+          visit "/coffee_shops"
+          click_button "Delete"
+          
+          expect(current_path).to eq("/coffee_shops/")
+          expect(page).to_not have_content("Starbucks")
+        end
+      end
+    end
   end
 end

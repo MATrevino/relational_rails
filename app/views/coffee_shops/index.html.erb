@@ -3,6 +3,7 @@
 <% @coffee_shops.each do |coffee_shop| %>
   <h4><strong><%= coffee_shop.name %></strong> created at:<%= coffee_shop.created_at %></h4>
   <p><%= button_to "Edit #{coffee_shop.name}", "/coffee_shops/#{coffee_shop.id}/edit", method: :get %>
+  <%= button_to "Delete", "/coffee_shops/#{coffee_shop.id}", method: :delete %>
 
   </p>
   <%end%>
