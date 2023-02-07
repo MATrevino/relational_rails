@@ -26,6 +26,7 @@ class DrinksController < ApplicationController
     drink.destroy
     redirect_to "/drinks"
   end
+
   private
   def drink_params
     params.permit(:name, :price, :hot_drink)

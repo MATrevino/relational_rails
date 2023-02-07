@@ -6,5 +6,6 @@
 <p> Price: $<%=drink.price %> </p>
 <p> Hot drink?: <%= drink.hot_drink %> </p>
 <p><%= button_to "Edit #{drink.name}", "/drinks/#{drink.id}/edit", method: :get %>
+<p><%= button_to "Delete #{drink.name}", "/drinks/#{drink.id}", method: :delete %></p>
 <%end%>
 

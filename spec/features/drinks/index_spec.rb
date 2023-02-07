@@ -63,5 +63,23 @@ RSpec.describe Drink do
         expect(page).not_to have_content("Cold Brew")
       end
     end
+    describe "user story #23: child delete from childs index page" do
+      describe "when I visit the child table index page, each child has a delete link" do
+        describe "when I click the link" do
+          it "should be taken to the `child_table_name` index page where I no longer see that child" do
+            coffee_shop_1 = CoffeeShop.create!(name: "Starbucks", open_year: 1971, open_after_five: true )
+            drink_1 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Flat White", hot_drink: true, price: 3)
+            drink_3 = Drink.create!(coffee_shop_id: coffee_shop_1.id, name: "Cold Brew", hot_drink: false, price: 4)
+            
+            visit "/drinks"
+
+            click_button "Delete #{drink_1.name}"
+            expect(current_path).to eq("/drinks")
+            expect(page).to have_content("Cold Brew")
+            expect(page).to_not have_content("Flat White")
+          end
+        end
+      end
+    end
   end
 end

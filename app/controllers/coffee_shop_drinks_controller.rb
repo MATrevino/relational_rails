@@ -19,6 +19,13 @@ class CoffeeShopDrinksController < ApplicationController
     redirect_to "/coffee_shops/#{coffee_shop.id}/drinks"
   end
 
+  # def destroy
+  #   coffee_shop = CoffeeShop.find(params[:id])
+  #   drink = coffee_shop.drinks.create!(drink_params)
+  #   drink.destroy
+  #   redirect_to "/drinks"
+  # end
+
   private
   def drink_params
     params.permit(:name, :price, :hot_drink)
