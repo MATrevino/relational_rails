@@ -23,5 +23,4 @@ Rails.application.routes.draw do
 
   delete '/coffee_shops/:id', to: 'coffee_shops#destroy'
   delete '/drinks/:id', to: 'drinks#destroy'
-  # delete '/drinks', to: 'drinks#destroy'
 end

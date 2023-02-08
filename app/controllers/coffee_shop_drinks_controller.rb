@@ -4,6 +4,8 @@ class CoffeeShopDrinksController < ApplicationController
     
     if params[:sort] == "name"
       @drinks = @coffee_shop.drinks.sort_alphabetically 
+    elsif params[:price].present?
+      @drinks = @coffee_shop.drinks.filter_price(params[:price])
     else
       @drinks = @coffee_shop.drinks
     end
@@ -18,13 +20,6 @@ class CoffeeShopDrinksController < ApplicationController
     drink = coffee_shop.drinks.create!(drink_params)
     redirect_to "/coffee_shops/#{coffee_shop.id}/drinks"
   end
-
-  # def destroy
-  #   coffee_shop = CoffeeShop.find(params[:id])
-  #   drink = coffee_shop.drinks.create!(drink_params)
-  #   drink.destroy
-  #   redirect_to "/drinks"
-  # end
 
   private
   def drink_params
